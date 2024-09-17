@@ -1,0 +1,14 @@
+services:
+  Vendor\RemoteApiCaller:
+    alias: Vendor\LogbookRemoteApiCaller
+
+  Vendor\LogbookRemoteApiCaller:
+    class: Vendor\LogbookRemoteApiCaller
+
+  Vendor\HttpRemoteApiCaller:
+    class: Vendor\HttpRemoteApiCaller
+
+when@prod:
+  services:
+    Vendor\RemoteApiCaller:
+      alias: Vendor\HttpRemoteApiCaller

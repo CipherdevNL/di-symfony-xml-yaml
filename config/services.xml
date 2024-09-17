@@ -1,0 +1,16 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <services>
+    <service id="Vendor\RemoteApiCaller" alias="Vendor\LogbookRemoteApiCaller"/>
+
+    <service id="Vendor\HttpRemoteApiCaller" class="Vendor\HttpRemoteApiCaller"/>
+    <service id="Vendor\LogbookRemoteApiCaller" class="Vendor\LogbookRemoteApiCaller"/>
+  </services>
+
+  <when env="prod">
+    <services>
+      <service id="Vendor\RemoteApiCaller" alias="Vendor\HttpRemoteApiCaller"/>
+    </services>
+  </when>
+</container>
